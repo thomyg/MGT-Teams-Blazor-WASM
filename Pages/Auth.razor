@@ -1,0 +1,19 @@
+﻿@page "/auth"
+@inject IJSRuntime JSRuntime;
+
+
+
+@code {
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        TeamsAuth();
+        base.OnAfterRender(firstRender);
+    }
+
+    private async void TeamsAuth()
+    {
+        await JSRuntime.InvokeAsync<string>("teamsauth");
+    }
+
+}
